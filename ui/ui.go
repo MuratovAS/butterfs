@@ -530,7 +530,7 @@ func (ui *UI) closeDialog() error {
 
 // updateGrub updates GRUB configuration
 func (ui *UI) updateGrub(g *gocui.Gui, v *gocui.View) error {
-	output, err := ExecuteCommand("grub-mkconfig", "-o", "/boot/grub/grub.cfg")
+	output, err := ExecuteCommand("sudo","update-grub") //FIXME:
 	if err != nil {
 		return ui.showDialog(fmt.Sprintf("Error updating GRUB:\n%v", err))
 	}
