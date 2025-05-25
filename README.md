@@ -1,6 +1,8 @@
 # butterfs
 
-butterfs is a TUI for managing Btrfs snapshots. Create and delete snapshots with a single click.
+![](design/2025-05-25-14-50-20-image.png)
+
+`butterfs` is a TUI for managing Btrfs snapshots. Create and delete snapshots with a single click.
 
 ## Features
 
@@ -10,6 +12,7 @@ butterfs is a TUI for managing Btrfs snapshots. Create and delete snapshots with
 - Grub-mkconfig functionality
 
 ## Preferred subvolumes structure
+
 ```
 _active
     _active/rootvol
@@ -22,8 +25,8 @@ _snapshots
 
 ## Dependencies
 
-- btrfs-progs
-- df
+- `btrfs-progs`
+- `df`
 
 ## Installation
 
@@ -32,29 +35,35 @@ To install `butterfs`, follow these steps:
 1. Make sure you have Go installed (version 1.16 or higher).
 
 2. Clone the repository:
-```shell
-git clone https://github.com/MuratovAS/butterfs.git; cd butterfs
-```
+   
+   ```shell
+   git clone https://github.com/MuratovAS/butterfs.git; cd butterfs
+   ```
 
 3. Build the project:
-```shell
-go build -o butterfs
-```
+   
+   ```shell
+   go build -o butterfs
+   ```
 
 4. (Optional) Move the executable to a directory included in PATH for convenient access:
-```shell
-sudo mv butterfs /usr/local/bin/
-```
+   
+   ```shell
+   sudo mv butterfs /usr/local/bin/
+   ```
 
 ## Usage
 
 After installation, you can use butterfs by specifying the path to the Btrfs partition:
 
 ```shell
+sudo ./butterfs /mnt/defvol
+#OR
 sudo butterfs /path/to/btrfs/partition
 ```
 
 You can override subvolume prefixes if needed.
+
 ```shell
 SUBVOLUME_PREFIX="_active"
 SNAPSHOT_PREFIX="_snapshots"
